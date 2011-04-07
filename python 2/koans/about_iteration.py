@@ -12,21 +12,21 @@ class AboutIteration(Koan):
         
         for num in it:
             fib += num
-            
-        self.assertEqual(__ , fib)
+           # 0 (1) 1 (2) 3 (3) 6 (4) 10 (5) 15 
+        self.assertEqual(15, fib)
 
     def test_iterating_with_next(self):
         stages = iter(['alpha','beta','gamma'])
 
         try:
-            self.assertEqual(__, next(stages))
+            self.assertEqual('alpha', next(stages))
             next(stages)
-            self.assertEqual(__, next(stages))
+            self.assertEqual('gamma', next(stages))
             next(stages)
         except StopIteration as ex:
             err_msg = 'Ran out of iterations'
             
-        self.assertMatch(__, err_msg)
+        self.assertMatch("Ran out", err_msg)
 
     # ------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ class AboutIteration(Koan):
         seq = [1, 2, 3]
    
         mapped_seq = map(self.add_ten, seq)
-        self.assertEqual(__, mapped_seq)
+        self.assertEqual([11, 12, 13], mapped_seq)
         
     def test_filter_selects_certain_items_from_a_list(self):
         def is_even(item): return (item % 2) == 0
@@ -45,7 +45,7 @@ class AboutIteration(Koan):
         seq = [1, 2, 3, 4, 5, 6]
    
         even_numbers = filter(is_even, seq)
-        self.assertEqual(__, even_numbers)
+        self.assertEqual([2,4,6], even_numbers)
     
     def test_just_return_first_item_found(self):
         def is_big_name(item): return len(item) > 4
